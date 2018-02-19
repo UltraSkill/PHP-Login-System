@@ -6,5 +6,8 @@ if(!defined('__CONFIG__')){
 
 // nuestra configuracion esta abajo
 
+//include the DB.php file
+include_once "classes/DB.php";
 
+$con = DB::getConnection();
 ?>
