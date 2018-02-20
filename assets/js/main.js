@@ -3,16 +3,16 @@ $(document)
     event.preventDefault();
     var _form = $(this);
     var _error = $(".js-error",_form);
-    var data = {
+    var dataObj = {
         email: $("input[type='email']",_form).val(),
         password: $("input[type='password']",_form).val()
     };
 
-    if(data.email.length <16){
+    if(dataObj.email.length <16){
         _error
         .text("Please enter a valid email adress").show();
         return false;
-    } else if(data.password.length<10){
+    } else if(dataObj.password.length<10){
         _error
         .text("Please enter a passphrase that is at least 10 characters long.")
         .show();
@@ -21,8 +21,30 @@ $(document)
 
     //assuming code gets this far, we can start the ajax process
     _error.hide();
-    console.log(data);
-
+    $.ajax({
+        type: 'POST',
+        url: 'ajax/register.php',
+        data: dataObj,
+        dataType: 'json',
+        async: true,
+    })
+    .done(function ajaxDone(data){
+        //whatever data is
+        console.log(data);
+        if(data.redirect !== undefined){
+            window.location=data.redirect;
+            
+        }
+        //alert(data.name);
+    })
+    .fail(function ajaxFailed(e){
+        // this failed
+        console.log(e);
+    })
+    .always(function ajaxAlwaysDoThis(data){
+        //always
+        console.log('Always');
+    })
     return false;
 })
 
