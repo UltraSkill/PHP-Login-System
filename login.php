@@ -31,6 +31,8 @@
                         <input class="uk-input" id="form-stacked-text" required="required" type="password" placeholder="Tu contraseña">
                     </div>
                 </div>
+                <div class="ul-margin uk-alert uk-alert-danger js-error" style="display: none;">
+                </div>
                 <div class="uk-margin">
                     <button class="uk-button uk-button-default" type="submit">Log in</button>
                 </div>
