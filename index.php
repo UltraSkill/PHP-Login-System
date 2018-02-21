@@ -3,6 +3,7 @@
     define('__CONFIG__', true);
     // requiere el archivo config
     require_once "inc/config.php"; 
+    echo $_SESSION['user_id']. ' is your user id';
 ?>
 <!DOCTYPE html>
 <html lang="en">
