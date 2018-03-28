@@ -3,7 +3,7 @@
     define('__CONFIG__', true);
     // requiere el archivo config
     require_once "inc/config.php"; 
-    ForceDashboard();
+    Page::ForceDashboard();
 ?>
 <!DOCTYPE html>
 <html lang="en">
